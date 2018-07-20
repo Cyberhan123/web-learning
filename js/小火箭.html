@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../html/css/init.css">
+</head>
+<style>
+    body {
+        height: 3000px;
+        background: white;
+    }
+
+    div {
+        width: 35px;
+        height: 74px;
+        background: url("../html/src/go-top.jpeg") -22px -5px;
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+    }
+
+    div:hover{
+        width: 35px;
+        height: 74px;
+        background: url("../html/src/go-top.jpeg") -113px -5px;
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+    }
+</style>
+<body>
+<div id="go-top"></div>
+</body>
+<script>
+    scrollTo(0,3000);
+    var oDiv = document.getElementById("go-top");
+    oDiv.onclick = function () {
+        oDiv.style.backgroundPositionX='-200px';
+        oDiv.style.backgroundPositionY='-5px';
+        var top = document.documentElement.scrollTop ||document.body.scrollTop ;
+        var timer = setInterval(function () {
+            scrollTo(0, top *=0.6);
+            if (top <= 1) {
+                clearInterval(timer);
+                scrollTo(0, 0);
+            }
+        }, 100);
+    }
+</script>
+</html>

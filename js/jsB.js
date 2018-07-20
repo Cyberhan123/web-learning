@@ -8,9 +8,13 @@ function outwindow() {
 
 }
 
-//恶搞
+//定时器
 function loop_alert() {
-    setInterval(window.alert("关掉我啊"),5000000);
+
+    setInterval(function () {
+        window.alert('11111')
+    }, 2000);
 }
+
 //while (1)
 loop_alert();

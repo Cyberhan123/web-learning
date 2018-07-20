@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="l" type="JavascriptDebugType" factoryName="JavaScript Debug" editBeforeRun="true" uri="http://localhost:63342/web-learning/js/jsA.html" useFirstLineBreakpoints="true">
+    <method>
+      <option name="LaunchBrowser.Before.Run" withDebugger="true" />
+    </method>
+  </configuration>
+</component>

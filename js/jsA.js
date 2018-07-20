@@ -8,4 +8,7 @@
 // var b=true;
 // console.log();
 var date=new Date();
-console.log("date:  ",date,"date.getdate:  ",date.getDate(),"date.getDay:  ",date.getDay(),"date.gettime:  ",date.getTime());
+var a=123;
+var b=132;
+console.log(a|b);
+//console.log("date:  ",date,"date.getdate:  ",date.getDate(),"date.getDay:  ",date.getDay(),"date.gettime:  ",date.getTime());

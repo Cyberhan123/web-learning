@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #menu {
+        width: 70px;
+        /*// 绝对定位释放空间，防止元素被挤走 */
+        position: absolute;
+        border: 1px black solid;
+        text-align: center;
+        display: none;
+        left: 0px;
+        top: 0px;
+    }
+
+    #menu li {
+        width: 70px;
+        line-height: 30px;
+        height: 30px;
+        border-bottom: 1px solid #cccccc;
+        list-style: none;
+    }
+
+    #menu li:last-child {
+        border-bottom: 0px;
+    }
+</style>
+<body>
+<ul id="menu">
+    <li>打开</li>
+    <li>下载</li>
+    <li>删除</li>
+    <li>复制</li>
+    <li>属性</li>
+</ul>
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = document.getElementsByTagName('li');
+    document.oncontextmenu = function (ev) {
+        ev.returnValue = false;
+        oMenu.style.top = ev.clientY + 'px';
+        oMenu.style.left = ev.clientX + 'px';
+        oMenu.style.display = 'block';
+        // ev.preventDefault();//return false;
+    }
+    document.onclick = function () {
+        oMenu.style.display = 'none';
+    }
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].onmouseover = function () {
+            this.style.background = '#ccc';
+        }
+        aLi[i].onmouseout = function () {
+            this.style.background = '';
+        }
+        aLi[i].onclick = function () {
+            alert(this.innerHTML);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js滑动特效</title>
+    <link rel="stylesheet" href="../html/css/init.css">
+</head>
+<style>
+    body {
+        height: 2000px;
+    }
+
+    .container {
+        position: absolute;
+        width: 300px;
+        top: 900px;
+        left: 40%;
+    }
+
+    .scroll-img {
+        position: relative;
+        left: 80px;
+        top: 190px;
+        width: 283px;
+        height: 158px;
+    }
+
+    .draw {
+        overflow: hidden;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border: black 1px solid;
+        border-radius: 50%;
+    }
+
+    .top {
+        background: url("../html/src/scroll-1.png")  no-repeat ;
+        background-size: 300px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .bottom {
+        background: url("../html/src/scroll-2.png")  no-repeat;
+        background-size: 300px;
+    }
+
+</style>
+<body>
+<div class="yuan"></div>
+<div class="container">
+    <div class="draw draw-tp">
+        <div class="scroll-img top "></div>
+    </div>
+    <div class="draw draw-bt" style="height: 500px; width: 500px;">
+        <div class="scroll-img bottom"></div>
+    </div>
+</div>
+<script>
+    var dw = document.getElementsByClassName("draw")[1];
+   //class 选择器要选择是哪个
+   //  var dw=document.getElementsByClassName("yuan")[0];
+    function tan(){
+
+        if (w>=400){
+            clearInterval(timer);
+        }
+    }
+   // var timer=setInterval(tan,100);
+
+
+
+    scroll()
+</script>
+</body>
+</html>

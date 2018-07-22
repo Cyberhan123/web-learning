@@ -10,5 +10,6 @@
 var date=new Date();
 var a=123;
 var b=132;
+console.log(date);
 console.log(a|b);
 //console.log("date:  ",date,"date.getdate:  ",date.getDate(),"date.getDay:  ",date.getDay(),"date.gettime:  ",date.getTime());

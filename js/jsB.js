@@ -10,11 +10,11 @@ function outwindow() {
 
 //定时器
 function loop_alert() {
-
     setInterval(function () {
         window.alert('11111');
     }, 2000);
 }
+
 console.log(alert('11111'));
 //while (1)
-//loop_alert();
+loop_alert();

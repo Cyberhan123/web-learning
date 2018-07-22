@@ -6,8 +6,13 @@
 </head>
 <style>
     * {
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,body{
+        width: 100%;
+        height: 100%;
     }
 
     #menu {
@@ -17,8 +22,8 @@
         border: 1px black solid;
         text-align: center;
         display: none;
-        left: 0px;
-        top: 0px;
+        left: 0;
+        top: 0;
     }
 
     #menu li {
@@ -30,7 +35,7 @@
     }
 
     #menu li:last-child {
-        border-bottom: 0px;
+        border-bottom: 0;
     }
 </style>
 <body>
@@ -44,24 +49,52 @@
 <script>
     var oMenu = document.getElementById('menu');
     var aLi = document.getElementsByTagName('li');
+    //右键菜单
+
     document.oncontextmenu = function (ev) {
-        ev.returnValue = false;
-        oMenu.style.top = ev.clientY + 'px';
-        oMenu.style.left = ev.clientX + 'px';
         oMenu.style.display = 'block';
+        var dw = document.documentElement.offsetWidth;
+        var dh = document.documentElement.offsetHeight;
+        var mh = oMenu.offsetHeight;
+        var mw = oMenu.offsetWidth;
+
+        //判断是不是会超过右边界
+        if (ev.clientX > (dw - mw)) {
+            oMenu.style.left = ev.clientX - mw + 'px';
+        } else {
+            oMenu.style.left = ev.clientX + 'px';
+        }
+        //判断是不是会超出下边界
+        if (ev.clientY > (dh - mh)) {
+            oMenu.style.top = ev.clientY - mh + 'px';
+        } else {
+            oMenu.style.top = ev.clientY + 'px';
+        }
+        //是不是在右下角
+        // if (ev.clientX > (dw - mw) && ev.clientY > (dh - mh)) {
+        //
+        //     oMenu.style.top = ev.clientY - mh + 'px';
+        //     oMenu.style.left = ev.clientX - mw + 'px';
+        // } else {
+        //     oMenu.style.top = ev.clientY + 'px';
+        //     oMenu.style.left = ev.clientX + 'px';
+        // }
+        //隐藏菜单
+        ev.returnValue = false;
+        //隐藏菜单的其他方法
         // ev.preventDefault();
         // return false;
-    }
+    };
     document.onclick = function () {
         oMenu.style.display = 'none';
-    }
+    };
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].onmouseover = function () {
             this.style.background = '#ccc';
-        }
+        };
         aLi[i].onmouseout = function () {
             this.style.background = '';
-        }
+        };
         aLi[i].onclick = function () {
             alert(this.innerHTML);
         }

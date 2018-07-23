@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background: #c8c8c8;
+    /*background: #c8c8c8;*/
 }
 *:not([class*="ico"]):not(i) {
 }

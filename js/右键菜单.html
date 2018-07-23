@@ -88,9 +88,12 @@
     document.onclick = function () {
         oMenu.style.display = 'none';
     };
+    //
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].onmouseover = function () {
             this.style.background = '#ccc';
+            //这样的是错的for在开始的时候就完成循环所以aLi[i]一直是aLi[5]
+            // aLi[i].style.background='#ccc';
         };
         aLi[i].onmouseout = function () {
             this.style.background = '';

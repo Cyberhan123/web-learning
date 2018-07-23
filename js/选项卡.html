@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <link rel="stylesheet" href="../html/css/init.css">
+</head>
+<style>
+    li {
+        list-style: none;
+        margin-right: 15px;
+        width: 100px;
+        color: white;
+        background: #cccccc;
+        float: left;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    /*div:first-child {*/
+    /*clear: both;*/
+    /*}*/
+    ul {
+        position: relative;
+        height: 103px;
+        top: 73px;
+    }
+
+    .over {
+        position: absolute;
+        width: 345px;
+        height: 300px;
+        background: #cccccc;
+        border-top: black solid 2px;
+    }
+
+    .container {
+        width: 400px;
+        margin: 100px auto;
+    }
+</style>
+<body>
+<div class="container">
+    <ul>
+        <li style="background: black">111</li>
+        <li style="background: #cccccc;">222</li>
+        <li style="background: #cccccc;">333</li>
+    </ul>
+    <div class="over" style="display: block">aaaa</div>
+    <div class="over" style="display: none">bbbb</div>
+    <div class="over" style="display: none">cccc</div>
+</div>
+</body>
+<script>
+    var aLi = document.getElementsByTagName('li');
+    var aOver = document.getElementsByClassName("over");
+    //第二种类方法
+    // var oContain = document.getElementsByClassName('container');
+    // var aDiv = oContain.getElementsByTagName('div');
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            for (var j = 0; j < 3; j++) {
+                aLi[j].style.background = "#ccc";
+                aOver[j].style.display = "none";
+                // 第二种方法
+                // aLi[j].className='';
+                // aDiv[j].className=''
+            }
+            this.style.background = "black";
+            aOver[this.index].style.display = "block";
+            //第二种方法
+            // this.className='select';
+            // aDiv[this.index].className='show'
+        }
+    }
+
+</script>
+</html>

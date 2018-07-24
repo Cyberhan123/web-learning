@@ -8,6 +8,7 @@
     #container {
         margin: 100px auto;
         width: 540px;
+        height: 300px;
     }
 
     img {
@@ -86,7 +87,9 @@
     var aImg = document.getElementsByTagName('img');
     var aLi = document.getElementsByTagName('li');
     var aSpan = document.getElementsByTagName('span');
+    var oContainer=document.getElementById('container');
     var flag = 0;
+    var  timer;
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].index = i;
         aLi[i].onmouseover = function () {
@@ -94,16 +97,27 @@
             show();
         }
     }
-    setInterval(function () {
-        if (flag < aLi.length) {
-
-            show();
-            flag++;
-            console.log(flag);
-        } else {
-            flag = 0;
-        }
-    }, 5000);
+    function play(){
+         timer=setInterval(function () {
+            if (flag < aLi.length) {
+                show();
+                flag++;
+                console.log(flag);
+            } else {
+                flag = 0;
+            }
+        }, 2000);
+    }
+    play();
+    oContainer.onmouseover=function (ev) {
+        console.log("鼠标覆盖");
+        clearInterval(timer)
+    };
+    //oContainer.onmousemove 会在鼠标离开时循环执行
+    oContainer.onmouseout=function (ev) {
+        console.log("鼠标离开");
+        play();
+    };
     aSpan[0].onclick = function () {
         if (flag >= 0 && flag < aLi.length) {
             console.log("向前");

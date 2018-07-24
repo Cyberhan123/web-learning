@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container {
+        margin: 100px auto;
+        width: 540px;
+    }
+
+    img {
+        position: absolute;
+        width: 540px;
+        height: 300px;
+        display: none;
+    }
+
+    ul {
+        position: relative;
+        height: 20px;
+        width: 150px;
+        top: 260px;
+        left: 360px;
+    }
+
+    li {
+        cursor: pointer;
+        list-style: none;
+        float: left;
+        background: #000;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+        margin-right: 10px;
+    }
+
+    .f-span span {
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        background: #000;
+        color: white;
+        margin-right: 10px;
+        display: block;
+        text-align: center;
+        line-height: 20px;
+        float: left;
+        cursor: pointer;
+    }
+
+    .f-span {
+        position: relative;
+        top: 230px;
+        left: 20px;
+    }
+
+    .select {
+        display: block !important;
+        background: orange !important;
+    }
+</style>
+<body>
+<div id="container">
+    <div>
+        <img class="select" src="../html/src/nav-1.jpg" alt="">
+        <img src="../html/src/nav-2.jpg" alt="">
+        <img src="../html/src/nav-3.jpg" alt="">
+        <img src="../html/src/nav-4.jpg" alt="">
+    </div>
+    <ul>
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class="f-span">
+        <span><</span>
+        <span>></span>
+    </div>
+</div>
+<script>
+    var aImg = document.getElementsByTagName('img');
+    var aLi = document.getElementsByTagName('li');
+    var aSpan = document.getElementsByTagName('span');
+    var flag = 0;
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            flag = this.index;
+            show();
+        }
+    }
+    setInterval(function () {
+        if (flag < aLi.length) {
+
+            show();
+            flag++;
+            console.log(flag);
+        } else {
+            flag = 0;
+        }
+    }, 5000);
+    aSpan[0].onclick = function () {
+        if (flag >= 0 && flag < aLi.length) {
+            console.log("向前");
+            if (flag > 0) {
+                flag--;
+            }
+            else {
+                flag = aLi.length-1;
+            }
+            show();
+        }
+    };
+    aSpan[1].onclick = function () {
+        if (flag >= 0 && flag < aLi.length) {
+            console.log("向后");
+            if (flag<aLi.length-1){
+                flag++;
+            }else {
+                flag=0;
+            }
+            show();
+        }
+    };
+
+    function show() {
+        console.log(flag);
+        for (var j = 0; j < aLi.length; j++) {
+            aImg[j].className = '';
+            aLi[j].className = '';
+        }
+        aLi[flag].className = 'select';
+        aImg[flag].className = 'select';
+    }
+</script>
+</body>
+</html>

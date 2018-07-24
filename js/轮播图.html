@@ -87,9 +87,9 @@
     var aImg = document.getElementsByTagName('img');
     var aLi = document.getElementsByTagName('li');
     var aSpan = document.getElementsByTagName('span');
-    var oContainer=document.getElementById('container');
+    var oContainer = document.getElementById('container');
     var flag = 0;
-    var  timer;
+    var timer;
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].index = i;
         aLi[i].onmouseover = function () {
@@ -97,8 +97,9 @@
             show();
         }
     }
-    function play(){
-         timer=setInterval(function () {
+
+    function play() {
+        timer = setInterval(function () {
             if (flag < aLi.length) {
                 show();
                 flag++;
@@ -108,13 +109,14 @@
             }
         }, 2000);
     }
+
     play();
-    oContainer.onmouseover=function (ev) {
+    oContainer.onmouseover = function () {
         console.log("鼠标覆盖");
         clearInterval(timer)
     };
     //oContainer.onmousemove 会在鼠标离开时循环执行
-    oContainer.onmouseout=function (ev) {
+    oContainer.onmouseout = function () {
         console.log("鼠标离开");
         play();
     };
@@ -125,7 +127,7 @@
                 flag--;
             }
             else {
-                flag = aLi.length-1;
+                flag = aLi.length - 1;
             }
             show();
         }
@@ -133,10 +135,10 @@
     aSpan[1].onclick = function () {
         if (flag >= 0 && flag < aLi.length) {
             console.log("向后");
-            if (flag<aLi.length-1){
+            if (flag < aLi.length - 1) {
                 flag++;
-            }else {
-                flag=0;
+            } else {
+                flag = 0;
             }
             show();
         }

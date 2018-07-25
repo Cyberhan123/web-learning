@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限滑动轮播图</title>
+</head>
+<style>
+    ul {
+        width: 560px;
+    }
+
+    li {
+        text-align: center;
+        line-height: 50px;
+        width: 50px;
+        height: 50px;
+        color: white;
+        list-style: none;
+        float: left;
+        margin-right: 20px;
+        /*background: url("http://i0.hdslb.com/bfs/bangumi/80edca06302d6e36f6f4948dea0fd09b940c5a91.png@50w_50h.webp")!important;*/
+        /*background-size: 50px;*/
+    }
+
+    #one {
+        background: brown;
+    }
+
+    #two {
+        background: red;
+    }
+
+    #three {
+        background: yellow;
+        color: black;
+    }
+
+    #four {
+        background: green;
+    }
+
+    #five {
+        background: pink;
+    }
+
+    #six {
+        background: blueviolet;
+    }
+
+    #seven {
+        background: slateblue;
+    }
+
+    #eight {
+        background: aquamarine;
+    }
+
+    .container {
+        overflow: hidden;
+        margin: 200px auto;
+        width: 300px;
+    }
+</style>
+<body>
+<div class="container">
+    <ul class="nav">
+        <li id="one">喵</li>
+        <li id="two">喵</li>
+        <li id="three">喵</li>
+        <li id="four">喵</li>
+        <li id="five">喵</li>
+        <li id="six">喵</li>
+        <li id="seven">喵</li>
+        <li id="eight">喵</li>
+    </ul>
+</div>
+<script>
+    var nav = document.getElementsByClassName("nav");
+    var distance = 0;
+
+    function go() {
+        setInterval(function () {
+            if (distance > -560) {
+                distance -= 5;
+                nav[0].style.transform = "translatex(" + distance + "px)";
+            } else {
+                nav[0].style.transform = "translatex(300px)";
+                distance = 300;
+            }
+        }, 50);
+    }
+
+    go();
+</script>
+</body>
+</html>

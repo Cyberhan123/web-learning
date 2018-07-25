@@ -60,6 +60,11 @@
         margin: 200px auto;
         width: 300px;
     }
+
+    #btn {
+        margin: 0 auto;
+        width: 150px;
+    }
 </style>
 <body>
 <div class="container">
@@ -73,24 +78,45 @@
         <li id="seven">喵</li>
         <li id="eight">喵</li>
     </ul>
+    <div id="btn">
+        <button id="right">向左</button>
+        <button id="left">向右</button>
+    </div>
 </div>
 <script>
     var nav = document.getElementsByClassName("nav");
+    var right = document.getElementById("right");
+    var left = document.getElementById("left");
     var distance = 0;
+    var timer;
 
-    function go() {
-        setInterval(function () {
-            if (distance > -560) {
-                distance -= 5;
+    function go(i) {
+        timer = setInterval(function () {
+            if (distance >= -560 && distance <= 280) {
+                distance += (5 * i);
                 nav[0].style.transform = "translatex(" + distance + "px)";
             } else {
                 nav[0].style.transform = "translatex(300px)";
-                distance = 300;
+                if (i < 0)
+                    distance = 280;
+                else
+                    distance = -280;
             }
         }, 50);
     }
 
-    go();
+    go(-1);
+    right.onclick=function () {
+        clearInterval(timer);
+        go(-1);
+    };
+    left.onclick=function () {
+        clearInterval(timer);
+        go(1);
+    };
+
+
+
 </script>
 </body>
 </html>

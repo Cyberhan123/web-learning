@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        position: absolute;
+        background: #000;
+        width: 200px;
+        height: 200px;
+        cursor: move;
+    }
+</style>
+<body>
+<div></div>
+</body>
+<script>
+    var oDiv = document.getElementsByTagName('div');
+    var dy;
+    var dx;
+    var x;
+    var y;
+    var dm;
+    oDiv[0].onmousedown = function (e) {
+        //获得初始位置
+        dy = e.clientY-this.offsetLeft;
+        dx = e.clientX-this.offsetTop;
+    };
+    //console.log(x, y);
+    document.onmousemove = function (e) {
+        y = e.clientY-dy;
+        x = e.clientX-dx;
+        // console.log(x, y);
+        oDiv[0].style.top=y+'px';
+        oDiv[0].style.left=x+'px';
+    };
+    document.onmouseup = function () {
+        this.onmousemove=null;
+        this.onmouseup=null;
+        console.log(dm);
+    }
+
+
+</script>
+</html>

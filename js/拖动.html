@@ -32,19 +32,20 @@
         //获得初始位置
         dy = e.clientY-this.offsetLeft;
         dx = e.clientX-this.offsetTop;
+        document.onmousemove = function (e) {
+            y = e.clientY-dy;
+            x = e.clientX-dx;
+            console.log(x, y);
+            oDiv[0].style.top=y+'px';
+            oDiv[0].style.left=x+'px';
+        };
+        document.onmouseup = function () {
+            this.onmousemove=null;
+            this.onmouseup=null;
+        };
     };
-    document.onmousemove = function (e) {
-        y = e.clientY-dy;
-        x = e.clientX-dx;
-        // console.log(x, y);
-        oDiv[0].style.top=y+'px';
-        oDiv[0].style.left=x+'px';
-    };
-    document.onmouseup = function () {
-        this.onmousemove=null;
-        this.onmouseup=null;
-        console.log(dm);
-    }
+
+
 
 
 </script>

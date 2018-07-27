@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <p>ppppppp</p>
+</div>
+<div id="div2">23333</div>
+<script>
+    var odiv1 = document.getElementById("div1");
+    var odiv2 = document.getElementById("div2");
+    console.log(odiv1.firstChild);
+    console.log(odiv1.firstElementChild);
+    console.log(odiv1.childNodes);
+    odiv1.childElementCount;
+    odiv1.append("1123232");
+    odiv1.appendChild(odiv2);
+    odiv1.appendChild(odiv2.cloneNode());
+    odiv1.removeChild(odiv2);
+   // odiv1.replaceChild()
+    odiv1.createElement("p");
+   // odiv1.insertBefore()
+</script>
+
+</body>
+</html>

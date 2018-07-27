@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+<div id="div1">
+    1111
+    <div id="div2">
+        2222
+        <div id="div3"> 33333</div>
+    </div>
+</div>
+<script>
+    var div1=document.getElementById("div1");
+    var div2=document.getElementById("div2");
+    var div3=document.getElementById("div3");
+    //事件的冒泡和捕获
+    //冒泡
+    div1.onclick=function () {
+        console.log(111111);
+    };
+    div1.onclick=function () {
+        console.log(111111);
+    };
+    div1.onclick=function () {
+        console.log(111111);
+        // e.cancelBubble;
+        // e.stopPropagation();
+    };
+    // true 是捕获 false  是冒泡
+
+    //addEventListener()在false状态下可以获得两个function
+    div1.addEventListener("click",function () {
+        console.log(111111);
+    },true);
+    div2.addEventListener("click",function () {
+        console.log(22222);
+    },true);
+    div3.addEventListener("click",function () {
+        console.log(33333);
+    },true);
+    // removeEventListener()
+
+
+    //ie 里的addEventListener
+    //div1.attachEvent("onclick");
+</script>
+</body>
+</html>

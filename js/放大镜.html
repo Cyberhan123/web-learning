@@ -72,19 +72,19 @@
         } else if (y < 0) {
             y = 0;
         }
-        var dx=x/(oDiv1.offsetWidth - magnifier.offsetWidth);
-        var bx=dx*(oDiv2.offsetWidth-max.offsetWidth);
-        var dy=y/(oDiv1.offsetHeight - magnifier.offsetHeight);
-        var by=dy*(oDiv2.offsetHeight-max.offsetHeight);
-         max.style.top=by+'px';
-         max.style.left=bx+'px';
+        var dx = x / (oDiv1.offsetWidth - magnifier.offsetWidth);
+        var bx = dx * (oDiv2.offsetWidth - max.offsetWidth);
+        var dy = y / (oDiv1.offsetHeight - magnifier.offsetHeight);
+        var by = dy * (oDiv2.offsetHeight - max.offsetHeight);
+        max.style.top = by + 'px';
+        max.style.left = bx + 'px';
         magnifier.style.top = y + "px";
         magnifier.style.left = x + 'px';
 
     };
     oDiv1.onmouseout = function () {
-         magnifier.style.display = "none";
-         max.style.display = "none";
+        magnifier.style.display = "none";
+        max.style.display = "none";
     }
 </script>
 </html>

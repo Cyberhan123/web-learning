@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #magnifier {
+        width: 200px;
+        height: 110px;
+        position: absolute;
+        background: white;
+        opacity: 0.3;
+        cursor: move;
+    }
+
+    #div1, #div1 img {
+        position: relative;
+        width: 400px;
+        height: 220px;
+        float: left;
+    }
+
+    #div2 {
+        width: 400px;
+        height: 220px;
+        float: left;
+        overflow: hidden;
+    }
+
+    #div2 img {
+        position: relative;
+        width: 800px;
+        height: 440px;
+    }
+</style>
+<body>
+<!--//不能把div magnifier放在div1外-->
+<div id="div1">
+    <!--//必须把放大镜加入div1里面让他成为子元素，要不放大镜会出现闪烁！！！！-->
+    <img src="../html/src/timg.jpg" alt="">
+    <div id="magnifier" style="display: none"></div>
+</div>
+<div id="div2"><img id="max-img" src="../html/src/timg.jpg" alt="" style="display: none"></div>
+
+</body>
+<script>
+    var magnifier = document.getElementById("magnifier");
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var max = document.getElementById("max-img");
+    oDiv1.onmouseover = function () {
+        magnifier.style.display = "block";
+        max.style.display = "block";
+    };
+    oDiv1.onmousemove = function (ev) {
+        ev = ev || window.event;
+        var x = ev.clientX - magnifier.offsetWidth / 2;
+        var y = ev.clientY - magnifier.offsetHeight / 2;
+        if (oDiv1.offsetWidth - magnifier.offsetWidth < x) {
+            x = oDiv1.offsetWidth - magnifier.offsetWidth;
+        } else if (x < 0) {
+            x = 0;
+        }
+        if (oDiv1.offsetHeight - magnifier.offsetHeight < y) {
+            y = oDiv1.offsetHeight - magnifier.offsetHeight;
+        } else if (y < 0) {
+            y = 0;
+        }
+        var dx=x/(oDiv1.offsetWidth - magnifier.offsetWidth);
+        var bx=dx*(oDiv2.offsetWidth-max.offsetWidth);
+        var dy=y/(oDiv1.offsetHeight - magnifier.offsetHeight);
+        var by=dy*(oDiv2.offsetHeight-max.offsetHeight);
+         max.style.top=by+'px';
+         max.style.left=bx+'px';
+        magnifier.style.top = y + "px";
+        magnifier.style.left = x + 'px';
+
+    };
+    oDiv1.onmouseout = function () {
+         magnifier.style.display = "none";
+         max.style.display = "none";
+    }
+</script>
+</html>

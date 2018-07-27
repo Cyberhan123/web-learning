@@ -16,31 +16,32 @@
     var div1=document.getElementById("div1");
     var div2=document.getElementById("div2");
     var div3=document.getElementById("div3");
+    //
     //事件的冒泡和捕获
-    //冒泡
+    //冒泡:绑定事件从内而外，从低到高，从子到父寻找绑定的事件
     div1.onclick=function () {
         console.log(111111);
     };
-    div1.onclick=function () {
-        console.log(111111);
+    div2.onclick=function () {
+        console.log(2222);
     };
-    div1.onclick=function () {
-        console.log(111111);
+    div3.onclick=function () {
+        console.log(33333);
         // e.cancelBubble;
         // e.stopPropagation();
     };
     // true 是捕获 false  是冒泡
 
     //addEventListener()在false状态下可以获得两个function
-    div1.addEventListener("click",function () {
-        console.log(111111);
-    },true);
-    div2.addEventListener("click",function () {
-        console.log(22222);
-    },true);
-    div3.addEventListener("click",function () {
-        console.log(33333);
-    },true);
+    // div1.addEventListener("click",function () {
+    //     console.log(111111);
+    // },true);
+    // div2.addEventListener("click",function () {
+    //     console.log(22222);
+    // },true);
+    // div3.addEventListener("click",function () {
+    //     console.log(33333);
+    // },true);
     // removeEventListener()
 
 

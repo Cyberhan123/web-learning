@@ -65,6 +65,7 @@
         aA[i].onclick = function () {
             aSubM[this.index].style.display = aSubM[this.index].style.display === 'none' ? 'block' : 'none';
             // aSubM[this.index].style.display = getComputedStyle(aSubM[this.index],false).display === 'none' ? 'block' : 'none';
+           //return 阻止a跳转
             return false;
         }
     }

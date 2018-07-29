@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #div1{
+        width: 400px;
+        height: 400px;
+    }
+</style>
+<body>
+<div id="div1"></div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>
+    //可以将对象赋值
+    console.log("可以将对象赋值");
+    var div1=$("#div1");
+   // $("#div1").css("background","red");
+    div1.css("background","red");
+    console.log(div1);
+    //jQuery转原生对象//或者.get
+    console.log(div1[0]);
+    console.log(document.getElementById("div1"));
+    console.log("原生转jQuery\n");
+    //原生转jQuery
+    var div2=document.getElementById("div1");
+    console.log($(div2));
+
+    //文档就绪
+    $(document).ready(function () {
+        console.log("文档就绪\n");
+        console.log(1111);
+    });
+    $(document).ready(function () {
+        console.log(2222);
+    });
+
+    //文档就绪函数简写
+    $(function () {
+        console.log("文档就绪函数简写\n");
+        console.log(3333);
+    })
+</script>
+</html>

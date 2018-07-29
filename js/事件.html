@@ -18,6 +18,8 @@
     var div3=document.getElementById("div3");
     //
     //事件的冒泡和捕获
+    //冒泡和捕获同时存在先捕获在冒泡
+    //到最终的子元素，谁先写先执行谁
     //冒泡:绑定事件从内而外，从低到高，从子到父寻找绑定的事件
     div1.onclick=function () {
         console.log(111111);

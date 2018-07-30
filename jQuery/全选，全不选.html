@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>你的爱好是什么</h1>
+<input type="checkbox" value="">足球
+<input type="checkbox" value="篮球">篮球
+<input type="checkbox" value="网球">网球
+<input type="checkbox" value="游泳">游泳
+<br/>
+<button id="all">全选</button>
+<button id="no">全不选</button>
+<button id="re-checked">反选</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $("#all").click(function () {
+            // 用这组$('input[type=checkbox]').attr('checked','checked');这个会不好使
+            $('input[type=checkbox]').prop('checked', 'checked');
+            // $('input[type=checkbox]').prop('checked',true);
+        });
+        $('#no').click(function () {
+            // 用这组$('input[type=checkbox]').attr('checked','');这个会不好使
+            $('input[type=checkbox]').prop('checked', '');
+            //$('input[type=checkbox]').prop('checked', false);
+        });
+        $('#re-checked').click(function () {
+            $('input[type=checkbox]').each(function (index, elem) {
+                // if($(elem).prop('checked') ){
+                //     $(elem).prop('checked', false);
+                // } else {
+                //     $(elem).prop('checked', true);
+                // }
+                elem.checked=!elem.checked;
+            })
+        })
+    })
+</script>
+</html>

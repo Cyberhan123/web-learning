@@ -5,14 +5,16 @@
     <title>Title</title>
 </head>
 <style>
-    #div1{
+    div{
         width: 400px;
         height: 400px;
     }
 </style>
 <body>
 <div id="div1"></div>
-
+<div class="div2"></div>
+<div class="div2"></div>
+<p>pppppppppp</p>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -45,6 +47,15 @@
     $(function () {
         console.log("文档就绪函数简写\n");
         console.log(3333);
-    })
+    });
+    //class 选择
+    $(".div2").eq(1).css("background","blue");
+    //jQ链式操作
+    $("#div1").css("background","red").css("color","blue");
+    $("#div1,p").css({
+        background:"red",
+        color:"blue",
+        "font-size":40
+    });
 </script>
 </html>

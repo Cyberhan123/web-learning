@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提示栏</title>
+</head>
+<style>
+    /**{*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*}*/
+    ul {
+        border: black 1px solid;
+        width: 161px;
+        height: auto;
+        margin-top: 0;
+    }
+</style>
+<body>
+<input type="text" id="ipt">
+<ul style="display: none">
+    <li class="ali">Sony</li>
+    <li class="ali">Apple</li>
+    <li class="ali">Microsoft</li>
+    <li class="ali">Google</li>
+
+</ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $('#ipt').keyup(function () {
+            var value = $(this).val();
+            $('.ali').css('display', 'none');
+            $('ul').css('display', 'none');
+            if (value !== '') {
+                $('ul').css('display', 'block');
+              var re=  $('li:contains(' + value + ')').css('display', 'block');
+            }
+            console.log(re);
+           // console.log($('.ali').find(':hidden').length);
+            $(document).click(function () {
+                $('ul').css('display', 'none');
+            })
+        })
+    })
+</script>
+</html>

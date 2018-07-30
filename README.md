@@ -3,9 +3,7 @@
 This is the new start begin
 
 ##self website  
-
 -我的博客又活了~~~ 2018/7/30
-
 -https://hselfweb.cn
 
 ##wiki  

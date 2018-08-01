@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #div1{
+        font-size: 20px;
+    }
+    /*元素真实px=父元素font-size*em;*/
+    /*font-size rem只能用html标签的来限定*/
+    #div2{
+        width: 5rem;
+        height: 5rem;
+        background: #000000;
+    }
+</style>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+    document.body.onresize=function () {
+        var w =document.documentElement.clientWidth;
+        document.documentElement.style.fontSize=w/10+'px';
+    }
+</script>
+</body>
+</html>

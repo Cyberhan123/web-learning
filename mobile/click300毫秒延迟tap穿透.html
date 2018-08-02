@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>-->
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: green;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #div2{
+        width: 400px;
+        height: 400px;
+        background: red;
+    }
+</style>
+<body>
+click根据300毫秒判断是否是双击
+zepto tap穿透事件 fastclick.js来解决
+用meta:vp针对谷歌8.0以上能避免穿透
+而火狐目前不能避免
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+<script src="zepto.js"></script>
+<script src="touch.js"></script>
+<script>
+    $(function () {
+        // FastClick.attach(document.body);
+        //longTap
+        $('#div1').on('tap',function () {
+            $(this).hide();
+            console.log(11111);
+        });
+        $('#div2').on('click',function () {
+            console.log(22222);
+        });
+        $('#div1').on('swipe',function () {
+            
+        })
+    })
+</script>
+</html>

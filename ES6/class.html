@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    class User{
+        //构造函数
+        constructor(pw){
+            this.name='xxx';
+            this.pw=pw;
+        }
+        userName(){
+            console.log(this.name);
+        }
+        passWord(){
+            console.log(this.pw)
+        }
+    }
+    let u=new User(1234);
+    u.userName();
+    u.passWord();
+    //继承 父类
+    //overriteW
+    class Son extends User{
+        constructor(n,a){
+            super(n);
+            this.eat=a;
+        }
+        userName(){
+            console.log(this.eat);
+        }
+        static thisIsStaticFunction(){
+            console.log('this is static function');
+        }
+    }
+    let so=new Son(123,345);
+    so.userName();
+    so.passWord();
+    Son.thisIsStaticFunction();
+</script>
+</html>

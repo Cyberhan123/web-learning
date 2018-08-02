@@ -29,6 +29,7 @@
         let e;
     }
     //let ：块级作用域，任何一个大括号都是一个作用域
+    //let const 才有块级作用域
     for (var i=0;i<5;i++){
         console.log(i);
     }
@@ -66,6 +67,5 @@
         console.log(index);
     })(5);
     //嵌套闭包问题：内存泄漏，内存溢出
-
 </script>
 </html>

@@ -18,3 +18,4 @@ Son.prototype = new Father();
 
 var s = new Son(1234);
 s.eat();
+//所有new 的对象会共享变量

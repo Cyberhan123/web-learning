@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--suppress JSAnnotator -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+//const 常量的关键字
+</body>
+<script>
+    //const 不能重复命名 不能再赋值
+    const NUM=6;
+   //这个锁住的是对对象的引用
+    const NUMBER={
+        name:'liming',
+        age:12
+    };
+    NUMBER.name='XiaoHong';
+    //解决方案：
+   // Object.freeze(NUMBER);
+    console.log(NUMBER);
+    console.log(NUM);
+
+</script>
+</html>

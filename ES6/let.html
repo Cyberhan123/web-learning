@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>ES2015/ES6</h1>
+</body>
+<script>
+    //let 定义关键字
+    //let 和var 不一样 没有变量提升
+    // console.log(a);
+    // console.log(b);
+    let a = 4;
+    var b = 5;
+
+    // let 不能重复声明
+    function f() {
+        var a = c = 6;
+        console.log(a);
+    }
+    // console.log(c);
+    //let 临时失效区（暂时性死区）
+    var e=4;
+    function f1() {
+        console.log(e);
+        //var e=3;
+        let e;
+    }
+    //let ：块级作用域，任何一个大括号都是一个作用域
+    for (var i=0;i<5;i++){
+        console.log(i);
+    }
+    //会输出5
+    console.log(i);
+    //会报错
+    for (let j=0;i<5;i++){
+        console.log(j);
+    }
+    // console.log(j);
+    //如果育了let   {}是合法的
+    {
+        let z=3;
+        console.log(z);
+    }
+    //一个外部函数里面声明了一个内部函数，内部函数里面调用了
+    //外部函数的局部变量，这个时候局部变量不会释放
+    for (var i=0;i<4;i++){
+        {
+            console.log(i);
+        }
+    }
+    //函数的持续调用,函数的闭包
+    function f2() {
+        var n=1000;
+        function f3() {
+            console.log(n);
+        }
+        return f3;
+    }
+    var result=f2();
+    result();
+    //函数立即调用
+    (function (index) {
+        console.log(index);
+    })(5);
+    //嵌套闭包问题：内存泄漏，内存溢出
+
+</script>
+</html>

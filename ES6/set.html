@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var set = new Set();
+    set.add(1234);
+    set.add('1223');
+    set.add(true);
+    set.delete(1234);
+    //set.clear();
+    for (var z of set) {
+        console.log(z);
+    }
+    console.log(set.size);
+    for (var key of set.entries()) {
+        console.log(key);
+    }
+    //去重
+    var arr = [1, 2, 34, 3, 4, 5, 3, 2];
+    var obj = {};
+
+    for (var i = 0; i < arr.length; i++) {
+        obj[arr[i]] = true;
+    }
+    for (var key in obj) {
+        console.log(key);
+    }
+    //去重方法二
+    var s=new Set(arr);
+    console.log(Array.from(s))
+</script>
+</body>
+</html>

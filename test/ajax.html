@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="../jQuery/jquery-3.3.1.js"></script>
+<script>
+    $.get('a.json',{"teacher":"cc"},function(d1){
+        console.log(d1.a);
+        var t = d1.teacher;
+        $.get('b.json',{"age":12},function(d2){
+            console.log(d2.b);
+            $.get('c.json',function(d3){
+                console.log(d3.c);
+            });
+
+        });
+    });
+</script>
+</html>

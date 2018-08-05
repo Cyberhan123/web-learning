@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">ajax GET</button>
+<div id="div1"></div>
+
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var odiv = document.getElementById('div1');
+    btn.onclick = function () {
+getJson();
+    };
+
+    function getJson() {
+        var xmlhttp;
+        //创建对象
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //
+        xmlhttp.open("GET", "a.json", true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange=function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                odiv.innerHTML = JSON.parse(xmlhttp.responseText).a;
+                console.log(JSON.parse(xmlhttp.responseText).a);
+            }
+        }
+    }
+
+
+</script>
+</html>

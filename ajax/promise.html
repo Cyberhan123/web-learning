@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+
+</body>
+<script src="../jQuery/jquery-3.3.1.js"></script>
+<script>
+    //回调嵌套
+    $.get('a.json', function (data1) {
+        console.log(data1.a);
+        $.get('a.json', function (data1) {
+            console.log(data1.a);
+            $.get('a.json', function (data1) {
+                console.log(data1.a);
+            })
+        });
+    });
+    var p = new Promise(function (resolve, reject) {
+        $.get('a.json', function (data) {
+            //代表成功状态的Promise对象
+            console.log(data.a)
+            resolve(data.a);
+            // var a='失败';
+            //  reject(a)
+            // 成功状态的Promise
+            //return Promise.resolve();
+        });
+    });
+    //.then方法可以链式·出来
+    p.then((data) => {
+        console.log(data.a)
+    }, (a) => {
+        console.log(a);
+    }).then((data) => {
+
+    });
+    //catch可以通过一来接受所有的错误
+    // p.then(()=>{}).catch((data)=>{
+    //
+    // })
+    var p1 = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve(1111);
+        }, 300);
+    });
+    var p2 = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve(2222);
+        }, 200);
+    });
+    var p3 = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve(33333);
+        }, 100);
+    });
+
+    //都成功再一起发出
+    var pp = Promise.all([p1, p2, p3]);
+    pp.then((data)=>{
+        console.log(data);
+    }).then((data)=>{
+        console.log(data+'sssss');
+    });
+    //竞速
+    var pr=Promise.race([p1,p2,p3]);
+    pr.then((data)=>{
+        console.log(data);
+    }).then((data)=>{
+        console.log(data+'sssss');
+    });
+</script>
+</html>

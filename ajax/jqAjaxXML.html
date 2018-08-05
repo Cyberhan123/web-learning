@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">ajax GET</button>
+<div id="list">
+</div>
+
+</body>
+<script src="../jQuery/jquery-3.3.1.js"></script>
+<script>
+    $('#btn').click(function () {
+        getXML();
+    });
+
+    function getXML() {
+        $.get('https://bird.ioliu.cn/v1?url=http://www.w3school.com.cn/example/xmle/note.xml', function (data) {
+            console.log(data);
+            $('#list').html(data.note.to);
+        }, 'xml');
+    }
+
+</script>
+</html>

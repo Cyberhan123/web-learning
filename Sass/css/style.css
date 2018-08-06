@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* 这个注释好使吗*/
+#div1 {
+  height: 300px;
+  width: 300px;
+  background: #ff597e;
+  color: #08BECE; }
+  #div1 :hover {
+    background: #7f79ff; }
+  #div1 h1 {
+    font-size: 50px; }
+  #div1 > h2 {
+    font-size: 50px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function* f() {
+        yield '1';
+        yield '2';
+        yield '3';
+        return 0;
+    }
+    //yield 声明的变量不会参与下一次运算
+    var gen=f();
+try {
+    console.log(gen.next().value);
+    console.log(gen.next().value);
+    console.log(gen.next().value);
+    console.log(gen.next().value);
+}catch (e) {
+   throw e.value();
+}
+</script>
+</html>

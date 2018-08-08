@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import printMe from './print.js';
-// import css from './css/style.css';
-//import sass from './css/common.scss';
+//额外到处也要有这个！！！！！
+import css from './css/style.css';
+import sass from './sass/index.scss';
 function component() {
     var element = document.createElement('div');
    var btn = document.createElement('button');

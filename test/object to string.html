@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let css = {
+        test: /\.css$/,
+        //这两个不能写反
+        //use:['style-loader','css-loader']
+        //额外加载
+
+    };
+    let img = {
+        test: /\.(png|jpg|gif)/i,
+        use: [{
+            loader: 'url-loader',
+            options: {
+                limit: 500,
+                outputPath: 'images/'
+            }
+        }, /*'postcss-loader'*/]
+    };
+    let arr=[css,img];
+    let test={a:arr};
+    console.log(test);
+
+
+  let f=(...arg) => {
+        console.log(arg)
+    };
+  f();
+</script>
+</html>

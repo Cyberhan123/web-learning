@@ -1,98 +1,52 @@
-const _dir = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+/**
+ *                             _ooOoo_
+ *                            o8888888o
+ *                            88" . "88
+ *                            (| -_- |)
+ *                            O\  =  /O
+ *                         ____/`---'\____
+ *                       .'  \\|     |//  `.
+ *                      /  \\|||  :  |||//  \
+ *                     /  _||||| -:- |||||-  \
+ *                     |   | \\\  -  /// |   |
+ *                     | \_|  ''\---/''  |   |
+ *                     \  .-\__  `-`  ___/-. /
+ *                   ___`. .'  /--.--\  `. . __
+ *                ."" '<  `.___\_<|>_/___.'  >'"".
+ *               | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *               \  \ `-.   \_ __\ /__ _/   .-` /  /
+ *          ======`-.____`-.___\_____/___.-`____.-'======
+ *                             `=---='
+ *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *                     佛祖保佑        永无BUG
+ *            佛曰:
+ *                   写字楼里写字间，写字间里程序员；
+ *                   程序人员写程序，又拿程序换酒钱。
+ *                   酒醒只在网上坐，酒醉还来网下眠；
+ *                   酒醉酒醒日复日，网上网下年复年。
+ *                   但愿老死电脑间，不愿鞠躬老板前；
+ *                   奔驰宝马贵者趣，公交自行程序员。
+ *                   别人笑我忒疯癫，我笑自己命太贱；
+ *                   不见满街漂亮妹，哪个归得程序员？
+ */
+/**
+ * @author Cyberhan
+ * @email 255542417@qq.com
+ * @description Cyberhan recode ,makes it more easyer to use
+ */
+
+const Cyentry = require("./webpack_config/entry.js");
+const Cyoutput = require("./webpack_config/output.js");
+const Cymodule = require("./webpack_config/module.js");
+const Cyplugins = require("./webpack_config/plugins.js");
+const CydevServer = require("./webpack_config/devServer.js");
+// const glob = require('glob');
+// const PurifyCSSPlugin = require("purifycss-webpack")
 module.exports = {
     mode: "development",
-    entry: {
-        //同级目录必须要./
-        index: './src/index.js',
-        print: './src/print.js'
-    },
-    output: {
-        path: _dir.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js',
-        publicPath: 'http://localhost:8080/'
-    },
-    module: {
-        rules:
-            [
-                {
-                    test: /\.css$/,
-                    //这两个不能写反
-                    //use:['style-loader','css-loader']
-                    //额外加载
-                    use: ExtractTextPlugin.extract({
-                        fallback: "style-loader",
-                        use: "css-loader"
-                    })
-                },
-                {
-                    test: /\.(png|jpg|gif)/i,
-                    use: [{
-                        loader: 'url-loader',
-                        options: {
-                            limit: 500,
-                            outputPath: 'images/'
-                        }
-                    }]
-                },
-                {
-                    test: /\.(htm|html)$/i,
-                    loader: 'html-withimg-loader'
-                }, {
-                test: /\.scss/,
-                //嵌入js
-                // use:[
-                //     {
-                //         loader:'style-loader'
-                //     },
-                //     {
-                //         loader:'css-loader'
-                //     },
-                //     {
-                //         loader:'sass-loader'
-                //     }
-                // ]
-                //额外加载
-                use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: "css-loader"
-                    },
-                        {
-                            loader: "sass-loader"
-                        }],
-                    fallback: "style-loader"
-                })
-            }
-            ]
-    },
-    plugins: [
-        // new CleanWebpackPlugin(['dist']),
-        new webpack.HotModuleReplacementPlugin(
-        ),
-        new HtmlWebpackPlugin(
-            {
-                title: 'HELLO',
-                minify: {
-                    removeAttributeQuotes: true
-                },
-                //hash: true,
-                template: './src/index.html',
-                filename: 'index.html',
-                //hash: true
-            }
-        ),
-        new ExtractTextPlugin("./src/css/style.css")
-    ],
-    devServer: {
-        contentBase: _dir.resolve(__dirname, 'dist'),
-        host: 'localhost',
-        port: '8080',
-        compress: true,
-        hot: true,
-        open: true
-    }
-
+    entry: Cyentry('./src/index.js', './src/print.js'),
+    output: Cyoutput('http://localhost:8080/'),
+    module: Cymodule(),
+    plugins: Cyplugins(),
+    devServer: CydevServer('localhost', '8080'),
 };

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var reg = /abvc/;
+    console.log(reg.exec("sdsffsabvcabvs"));
+    var re = new RegExp(reg);
+    console.log(re.exec("sdsffsabvcabvs"));
+    var t = /a{3}/;//匹配连续的三个a
+    var z = /v{1,}/;//匹配至少一个，或者多个
+    var u = /^a/;//以a开头
+    var c = /u$/;//以u结尾
+    var q = /./;//所有除了/n或者空都能匹配
+    var v = /.+/;//所有除了/n
+    var a = /^a|b.+/;//以a开头    或   从b开始的所有除了/n或者空
+    var q = /^a|b.*/;//以a开头    或   从b开始的所有
+    var qq = /^[abc]/;//以 a ,b ，c开头
+    var rrg = /^[a-zA-Z][a-zA-Z0-9_]+/;//
+    var uuu = /[^uac]/;//不是uac,在【】中^表示非
+    var uuuu = /\bc/;//\b表示c在最左边界 空格左右也算边界
+    var uuuu = /c\b/;//\b表示c在最右边界 空格左右也算边界
+    var zzzz = /c\B/;//表示不在最右边界同理
+    var num = /\d/;//表示数字
+    var ba = /\s/;//表示空格字符
+    var son = /(\w)(\w)/;//子字符串匹配
+    var son1 = /(\w)\1/;
+    var sss = /a?/;//0或一个a
+</script>
+</html>

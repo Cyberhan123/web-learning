@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Cyberhan
+ */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -24,6 +28,9 @@ let ReadMe = new CopyWebpackPlugin([
 let Production = new webpack.ProvidePlugin({
     $: "jquery"
 });
+/**
+ * @returns {*[]}
+ */
 module.exports = () => {
     return [HtmlPlugin,HotModule,CssOutPutPath,AuthorMessage,Production]
 };

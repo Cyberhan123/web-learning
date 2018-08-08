@@ -1,3 +1,10 @@
+/**
+ * @author Cyberhan
+ * @param entryJs
+ * @param indexJS
+ * @param other
+ * @returns {*}
+ */
 module.exports = (entryJs,indexJS,...other) => {
    let arr={
        entry:entryJs,

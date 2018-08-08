@@ -66,6 +66,10 @@ const babel = {
 };
 let arr = [css, img, html, sass, babel];
 let str = ["css", "img", "html", "sass", "babel"];
+/**
+ * @param arg
+ * @returns {*}
+ */
 module.exports = (...arg) => {
     let array = [];
     if (arg.length===0) {

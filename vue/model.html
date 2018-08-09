@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" @keyup.enter="fn" v-model="val"/>
+    {{msg}}
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:0,
+            val:''
+        },
+        methods:{
+            fn(){
+                this.msg=0;
+                this.msg+=this.val*1;
+            }
+        }
+    })
+</script>
+</html>

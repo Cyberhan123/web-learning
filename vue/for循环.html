@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="val in arr"> {{val}}</li>
+    </ul>
+    <ul>
+        <li v-for="ar in clist">{{'name:'+ar.name+' age:'+ar.age}}</li>
+    </ul>
+    <ul>
+        <li v-for="(val,key,index) in clist">
+            <!--{{val}}-->
+            <!--{{key}}-->
+            {{index}}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            msg: 'hello world',
+            arr: [1111, 2222, 3333],
+            clist: [
+                {
+                    name: '你不太像人',
+                    age: 1000
+                }, {
+                    name: '你也不太象人',
+                    age: -100
+                }
+            ]
+        }
+    })
+</script>
+</html>

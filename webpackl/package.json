@@ -1,7 +1,6 @@
 {
   "name": "webpackl",
   "version": "1.0.0",
-  "description": "",
   "private": true,
   "scripts": {
     "build": "webpack",
@@ -35,5 +34,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.1"
-  }
+  },
+  "main": "webpack.config.js",
+  "description": ""
 }

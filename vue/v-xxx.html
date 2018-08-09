@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="xx=='A'">222222222</div>
+    <div v-else="xx=='B'">3333333</div>
+</div>
+<p>template里v-show无效</p><br/>
+<p>v-if是在初始化不加载的</p><br/>
+<p>v-show是在初始化加载的</p><br/>
+<template v-if="msg">
+    <p v-show="msg">pppppppp</p>
+    <p>zzzzz</p>
+    <h1>edddddd</h1>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: false,
+            xx:'A'
+        }
+    })
+</script>
+</html>

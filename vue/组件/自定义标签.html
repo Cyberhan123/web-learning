@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div id="app">
+    <test1  ></test1>
+    <!--getMsg变成get-msg-->
+    <test2 :get-msg="list"><p slot="slot1">哇哇哇哇成功了</p></test2>
+    <p slot="slot2">哇成功了</p>
+</div>
+</body>
+<script type="text/x-handlebars-template" id="temp">
+    <div>
+    <ul><li v-for='i in getMsg'>{{i.name}}</li></ul>
+        <slot name="slot2">组件可以传代码的位置</slot>
+        <slot name="slot1">组件可以传代码的位置</slot>
+    </div>
+</script>
+<script src="../vue.js"></script>
+<script>
+    //全局组件
+    Vue.component('test1',{
+        template: "<div>hhhhhhh</div>"
+    });
+   let vm= new Vue({
+        el:"#app",
+        data:{
+            msg:"",
+            list:[{name:1},{name:2},{name:3}]
+        },
+        components:{
+            //组件
+           test2:{
+               template: "#temp",
+               // template:"<ul><li v-for='i in getMsg'>{{i.name}}</li></ul>",
+               //大写要转换成-小写
+               //props不是prop
+               props:['getMsg']
+           }
+        }
+    })
+</script>
+</html>

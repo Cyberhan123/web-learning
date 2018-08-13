@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    }
+    #dialog {
+        margin: 100px auto;
+        width: 300px;
+        height: 200px;
+        padding: 40px;
+        box-shadow: 4px 4px 5px #888888;
+    }
+
+    #title {
+        height: 30px;
+        background: pink;
+        line-height: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #close {
+        float: right;
+        cursor: pointer;
+    }
+
+    #userName, #passWord ,#email{
+        margin: 20px;
+    }
+
+    #sub-btn {
+        display: block;
+        text-align: center;
+        width: 250px;
+        margin: 25px;
+        background-color: pink;
+        color: white;
+        border: none;
+    }
+</style>
+<body>
+<!--父元素向子元素传事件，传数值-->
+<!--$emit(string)-->
+<div id="app">
+    <button @click="log">登录</button>
+    <button @click="re">注册</button>
+    <rl-frame state="登录" v-show="logShow" @is-close="close()"></rl-frame>
+    <rl-frame state="注册" v-show="reShow" @is-close="close()"><div id="email">邮箱：<input type="email"></div></rl-frame>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/x-handlebars-template" id="rl-frame">
+    <div id="dialog">
+        <div id="title"><span>{{state}}</span><span id="close" @click="$emit('is-close')">X</span></div>
+        <slot></slot>
+        <div id="userName">昵称：<input type="text"></div>
+        <div id="passWord">密码：<input type="password"></div>
+        <input id="sub-btn" type="submit" :value="state">
+    </div>
+</script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            reShow:false,
+            logShow:false
+        },
+        components: {
+            rlFrame: {
+                template: "#rl-frame",
+                props: ['state']
+            }
+        },
+        methods:{
+            close(){
+                // console.log(1111);
+                this.reShow=false;
+                this.logShow=false;
+            },
+            re(){
+                this.reShow=true;
+                this.logShow=false;
+            },
+            log(){
+                this.reShow=false;
+                this.logShow=true;
+            }
+        }
+    })
+</script>
+</body>
+</html>

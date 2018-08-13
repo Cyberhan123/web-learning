@@ -1,0 +1,24 @@
+{
+  "productions": [
+    {
+      "img": "img/1.jpg",
+      "name": "Iichiko 日本烧酒",
+      "reback": "无",
+      "price": "70.50",
+      "number": 0,
+      "total": 0,
+      "isCheck": true,
+      "isOn":true
+    },
+    {
+      "img": "img/2.jpg",
+      "name": "杨先生的酥琪玛",
+      "reback": "无",
+      "price": "18.90",
+      "number": 0,
+      "total": 0,
+      "isCheck": true,
+      "isOn":true
+    }
+  ]
+}

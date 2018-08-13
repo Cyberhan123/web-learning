@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+    }
+    .black{
+        background: #000000;
+    }
+    .font{
+        font-size: 30px;
+    }
+</style>
+<body>
+<div id="app">
+    <div id="div1" v-bind:title="t"></div>
+    <div id="div2" :title="t"></div>
+    <div id="div3" :class="{black:isBlack,font:isFont}"></div>
+    <div id="div4" :class="[black,font]"></div>
+    <div id="div5" :style="{background: styleA,'font-size': styleB}"></div>
+    <div id="div6" :style="styleObj"></div>
+    <div id="div7" :style="[styleA,styleB]"></div>
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            styleObj:{
+                background:'red',
+                'font-size':'30px'
+            },
+            styleA:'black',
+            styleB:'font',
+            t: "ttt",
+            isBlack:false,
+            isFont:false,
+            font:'font',
+            black:'black'
+        }
+    })
+</script>
+</html>

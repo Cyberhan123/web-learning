@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        /*text-align: center;*/
+    }
+
+    li {
+        background: greenyellow;
+        width: 400px;
+        height: 50px;
+        list-style: none;
+        margin: 20px;
+        padding: 10px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #app {
+        width: 400px;
+        margin: 100px auto;
+        /*text-align: center;*/
+    }
+    span{
+        float: right;
+    }
+    .turnRed {
+        background: red;
+    }
+    .turnGreen{
+        background: greenyellow;
+    }
+</style>
+<body>
+<div id="app">
+    <h1>价格计算器</h1>
+    <ul>
+        <li v-for="item in items" @click.stop="turnRed">{{item.name}}<span>￥{{item.price}}</span></li>
+    </ul>
+    <hr>
+    <div>合计：<span>{{value}}</span></div>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            items: [{
+                name: "使命召唤10",
+                price: 450,
+            }, {
+                name: "文明5",
+                price: 280,
+            }, {
+                name: "生化危机合集",
+                price: 650,
+            }, {
+                name: "绝地求生",
+                price: 98,
+            }, {
+                name: "GTA5",
+                price: 244,
+            }
+            ],
+            value: 0
+        },
+        methods: {
+            turnRed(e) {
+                if (e.target.className !== "turnRed")
+                    e.target.className="turnRed";
+                else
+                    e.target.className="turnGreen";
+                let oli = document.getElementsByTagName("li");
+                this.value=0;
+                for (let i = 0; i < oli.length; i++) {
+                    if (oli[i].className === "turnRed") {
+                        this.value+= this.items[i].price;
+                    }
+
+                }
+            }
+        },
+    })
+</script>
+</html>

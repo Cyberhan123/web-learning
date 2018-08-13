@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
+<body>
+<div id="app">
+    小小甜品店
+    <input type="checkbox" @click.stop="isShow=!isShow" >
+    <ul id="ul1" :class="{hidden:isShow}">
+        <li v-for="item in items" >{{item.name}}（{{item.price}}）<input type="checkbox" v-model="arr" :value="item"></li>
+    </ul>
+    <br/>
+    订单
+    <ul>
+        <li v-for="ar in arr">{{ar.name}}（{{ar.price}}）</li>
+    </ul>
+    总金额
+    </br>
+    {{total}}
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {name: "奶茶", price: 18},
+                {name: "芒果冰沙", price: 30},
+                {name: "拿铁", price: 38}
+            ],
+            hasChecked:[],
+            arr:[
+                {name:"星冰乐",price:38}
+            ],
+            isShow:false
+        },
+       computed:{
+            total(){
+                let val=0;
+                this.arr.forEach(function (elem) {
+                    val+= elem.price;
+
+                });
+                return val;
+            }
+       }
+    })
+</script>
+</html>

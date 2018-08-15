@@ -6,10 +6,16 @@ import Test1 from './views/Test1';
 import Test2 from './views/Test2';
 import Test3 from './views/Test3';
 import Test4 from './views/Test4';
+import Error from './views/Error';
+import Music from './views/Music';
+import MusicD from './views/MusicDatil';
+import VueX from './views/VueX';
+import A from './views/A';
 
 Vue.use(Router);
 
-export default new Router({
+var router = new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -19,7 +25,7 @@ export default new Router({
         {
             path: '/about',
             name: 'about',
-            alias:'/biem',
+            alias: '/biem',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
@@ -38,8 +44,8 @@ export default new Router({
                     component: Test1
                 },
                 {
-                    path:'test2',
-                    component:Test2
+                    path: 'test2',
+                    component: Test2
                 },
                 {
                     path: 'test3',
@@ -47,18 +53,46 @@ export default new Router({
                     component: Test3
                 },
                 {
-                    path:'test4/:name',
-                    component:Test4
+                    path: 'test4/:name',
+                    component: Test4
                 }
             ]
         },
         {
-            path:'/home',
-            redirect:'/'
+            path: '/home',
+            redirect: '/'
         },
         {
-            path:'/home/:name',
-            redirect:'/my/test4/:name'
+            path: '/home/:name',
+            redirect: '/my/test4/:name'
+        },
+        {
+            path: '*',
+            component: Error
+        },
+        {
+            path:'/music',
+            component:Music
+        },
+        {
+            path:'/musicdatil/:id',
+            component:MusicD
+        },{
+        path:'/vuex',
+            component:VueX,
+        },{
+        path:'/a',
+            component:A
         }
     ],
+    // 全局组件
+    //跳转之前执行
 });
+// router.beforeEach((to, from, next) => {
+//     // next();
+//     //跳转之后执行
+// });
+// router.afterEach((to, from, next) => {
+//     // next();
+// });
+export default router;

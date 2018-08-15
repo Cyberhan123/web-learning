@@ -20,13 +20,26 @@
             <router-link to="/home/wangwu">重定向参数</router-link>
             |
             <router-link to="/biem">别名</router-link>
+            |
+            <router-link to="/music">传值给子页面</router-link>
         </div>
         <!--router-view是模板显示的位置-->
+        <transition name="fade" model="out-in">
         <router-view/>
+        </transition>
     </div>
 </template>
 
 <style lang="scss">
+    .fade-enter{
+        opacity: 0;
+    }
+    .fade-enter-active{
+       transition:opacity 2s linear;
+    }
+    .fade-enter-to{
+        opacity: 100;
+    }
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;

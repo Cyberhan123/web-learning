@@ -1,0 +1,46 @@
+{
+  "musicData": [
+    {
+      "title": "Home",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - Home.mp3",
+      "pic": "http://omratag7g.bkt.clouddn.com/%E6%88%91%E8%A6%81%E4%BD%A0.jpg",
+      "lrc": "/lrc/1.lrc"
+    },
+    {
+      "title": "I Dont Know",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - I Don't Know.mp3",
+      "pic": "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3283023278,2758205127&fm=58&bpow=1824&bpoh=1824",
+      "lrc": "/lrc/2.lrc"
+    },
+    {
+      "title": "一步成诗",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - 一步成诗.mp3",
+      "pic": "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1407964657,2382644691&fm=58",
+      "lrc": "http://localhost:8080/lrc/3.lrc"
+    },
+    {
+      "title": "换装",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - 换装.mp3",
+      "pic": "http://singerimg.kugou.com/uploadpic/softhead/400/20180718/20180718110356316.jpg",
+      "lrc": "http://localhost:8080/lrc/4.lrc"
+    },
+    {
+      "title": "望江亭",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - 望江亭.mp3",
+      "pic": "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2556611937,1195664541&fm=58&bpow=2000&bpoh=2000",
+      "lrc": "http://localhost:8080/lrc/3.lrc"
+    },
+    {
+      "title": "爱存在",
+      "artist": "王诗安",
+      "src": "/music/王诗安 - 爱存在.mp3",
+      "pic": "http://p4.music.126.net/lDyytkTaPYVTb1Vpide6AA==/18591642115187138.jpg",
+      "lrc": "http://localhost:8080/lrc/2.lrc"
+    }
+  ]
+}

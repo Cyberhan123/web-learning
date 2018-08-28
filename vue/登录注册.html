@@ -55,7 +55,8 @@
     <rl-frame state="注册" v-show="reShow" @is-close="close()"><div id="email">邮箱：<input type="email"></div></rl-frame>
 </div>
 
-<script src="vue.js"></script>
+<!-- <script src="vue.js"></script> -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
 <script type="text/x-handlebars-template" id="rl-frame">
     <div id="dialog">
         <div id="title"><span>{{state}}</span><span id="close" @click="$emit('is-close')">X</span></div>

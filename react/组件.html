@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+</head>
+<body>
+<div id="root"></div>
+</body>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    // 组件第一个字母要大写
+    let Helloworld = (props) => {
+        return (
+            <div>
+                <h1>hello world</h1>
+                <h2>{props.name}</h2>
+                <p>{props.children}</p>
+            </div>
+        );
+    };
+    ReactDOM.render(
+        <Helloworld name="哈喽哈">这是标签中间</Helloworld>,
+        document.getElementById('root')
+    )
+</script>
+</html>

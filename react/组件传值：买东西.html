@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>买东西</title>
+</head>
+<body>
+<div id="root"></div>
+</body>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    class Totail extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state={
+                total:0
+            }
+        }
+        add(num){
+            this.setState({
+                total:this.state.total+3,
+            });
+             console.log(num);
+        }
+        render(){
+            return(
+                <div>
+                    <Item ref="glc" name="果粒橙" price="3" add={this.add.bind(this)}/>
+                    <Item ref="kl" name="可乐" price="3" add={this.add.bind(this)}/>
+                    <h5>总计：</h5>
+                    <span>￥{this.state.total}元</span>
+                </div>
+            )
+        }
+    }
+
+    class Item extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state={
+                num:0
+            }
+        }
+        render(){
+            return(
+                <div>
+                    <h4>{this.props.name}：{this.props.price}元</h4>
+                    <span>数量：{this.state.num}</span>
+                    <br/>
+                    <button onClick={()=>{this.props.add(this.state.num);++this.state.num}}>购买一瓶</button>
+                </div>
+            )
+        }
+
+    }
+
+    ReactDOM.render(
+        <Totail/>,
+        document.getElementById('root')
+    )
+</script>
+</html>

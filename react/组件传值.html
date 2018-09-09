@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子组件向父组件传值</title>
+</head>
+<body>
+<div id="root">
+
+</div>
+</body>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    class Container extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                msg:"电商"
+            }
+        }
+        change(msg){
+           this.setState({
+               msg: msg,
+           })
+        }
+        render(){
+            return(
+                <div>
+                    <h1>{this.state.msg}</h1>
+                    <Product aa="111" fatherCall={this.change.bind(this)}>123</Product>
+                    <Product>123</Product>
+                    <Product>123</Product>
+                </div>
+            )
+        }
+    }
+    class Product extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                msg:"111111"
+            };
+            console.log(this.props);
+        }
+        render(){
+            return(
+                <div onClick={()=>{
+                    this.props.fatherCall(this.state.msg)
+                }}>
+                    <span >{this.props.children}</span>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Container/>,
+        document.getElementById('root')
+    )
+</script>
+</html>

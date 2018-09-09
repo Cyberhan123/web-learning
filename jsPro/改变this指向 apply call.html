@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj={
+        lll:"12323",
+    };
+    function fn() {
+        console.log(this);
+    }
+    //window.a();
+    a();
+    //call 的第一个是改变参数指向
+    a.call(obj,'xxx',10);
+    a.apply(obj,['xxx',100]);
+    a.bind(obj,'xxx',1000)();
+</script>
+</html>

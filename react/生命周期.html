@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明周期</title>
+</head>
+<body>
+<div id="root"></div>
+</body>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    class Main extends React.Component{
+        constructor(props) {
+            super(props);
+           this.state={
+                title:"111"
+            };
+            console.log("main------constructor")
+        }
+        componentWillMount(){
+            console.log("main------WillMount");
+        }
+        componentDidMount(){
+            console.log("main------DidMount");
+        }
+        shouldComponentUpdate(nextProps,nextState){
+            console.log("main------shouldComponentUpdate");
+            return true;
+        }
+
+        componentWillReceiveProps(){
+
+        }
+        componentWillUnmount(){}
+
+        componentWillUpdate(){
+
+        }
+        change(){
+            this.setState({
+                title:"22222"
+            })
+        }
+        render() {
+            console.log("main------render");
+            return (
+                <div>
+                    <p>{this.state.title}</p>
+                    <button onClick={this.change.bind(this)}>点我</button>
+                </div>
+            );
+        }
+
+    }
+    ReactDOM.render(
+        <Main/>,
+        document.getElementById("root")
+    )
+</script>
+</html>

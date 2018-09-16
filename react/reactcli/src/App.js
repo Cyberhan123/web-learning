@@ -1,7 +1,7 @@
 //{Component}是解构
 import React, {Component} from 'react';
 import add from './actions/add';
-import store from './store';
+// import store from './store';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {

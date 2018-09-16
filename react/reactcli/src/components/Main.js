@@ -10,6 +10,7 @@ class Main extends Component {
                 main 主页面
                 <Router>
                     <div>
+                        跳转
                         <Link to='/a'>跳转A</Link><br/>
                         <Link to='/b'>跳转B</Link>
                         <Route path='/a' component={PageA}/>

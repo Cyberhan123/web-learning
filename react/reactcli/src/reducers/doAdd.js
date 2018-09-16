@@ -1,17 +1,15 @@
 import {combineReducers} from 'redux';
 
-const doAdd=(count,action)=>{
-    console.log(count,action);
+const count = (state = 0, action) => {
+    console.log(state, action);
     switch (action.type) {
         case 'ADD_ACTION':
-            return count+1;
+            return state + action.text;
         default :
-            return count;
-
+            return state;
     }
-    return state;
 };
-const reducer=combineReducers({
-    doAdd,
+const reducer = combineReducers({
+    count,
 });
 export default reducer;

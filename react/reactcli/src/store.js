@@ -7,7 +7,7 @@
 import {createStore} from 'redux';
 import reducer from './reducers/doAdd'
 const inintialState = {
-    count: 0
+    count: 1
 };
 
 const store = createStore(reducer, inintialState);

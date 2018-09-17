@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+        background-color: #96b97d;
+    }
+
+    .container {
+        width: 500px;
+        margin: 200px auto;
+        font-size: 20px;
+    }
+
+    .container > input, .container > label, .container > p, .container > select, .container > div {
+        margin: 10px;
+    }
+
+    .container > input, select, option, #error {
+        height: 30px;
+        width: 250px;
+    }
+
+    .radio {
+        margin: 0 !important;
+        width: 100px !important;
+    }
+
+    #subBtn, #subBtn:visited {
+        height: 50px;
+        width: 370px;
+        background-color: #2981e4;
+        border: none;
+    }
+
+    #subBtn:hover {
+        background-color: #2575cf;
+        border: none;
+    }
+</style>
+<body>
+<div class="container">
+    <h1>ajax post 方法提交数据</h1>
+    <label for="un"> 用户昵称: </label>
+    <input type="text" id="un">
+    <br>
+    <label for="pw">用户密码: </label>
+    <input type="password" id="pw">
+    <br>
+    <label for="select">用户性别: </label>
+    <select name="sex" id="select">
+        <option value="man">男</option>
+        <option value="woman">女</option>
+    </select>
+    <p>是否同意本站协议</p>
+    <input type="radio" value="yes" id="raYes" name="choose" class="radio">
+    <label for="raYes">是</label>
+    <input type="radio" value="no" id="raNo" name="choose" class="radio" checked="checked">
+    <label for="raNo">否</label>
+    <div id="error"></div>
+    <p>
+        <button id="subBtn">确定</button>
+    </p>
+</div>
+</body>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    var $un = $('#un');
+    var $pw = $('#pw');
+    var $sex = $('#select');
+    var $choose = $('.radio');
+    var $err = $('#error');
+    $("#subBtn").click(function () {
+        if ($un.val() === "") {
+            $err.html("用户名为空");
+            return;
+        }
+        if ($pw.val() === "") {
+            $err.html("密码为空");
+            return;
+        }
+        $.get("/ajax", {
+                "username": $un.val(),
+                "password": $pw.val(),
+                "sex": $sex.val(),
+                "choose": $choose.val()
+            },
+            function (re) {
+                console.log(re);
+                $(".container").html(re);
+            }
+        );
+    })
+
+</script>
+</html>

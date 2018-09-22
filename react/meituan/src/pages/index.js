@@ -1,5 +1,5 @@
 import { Grid } from 'antd-mobile';
-import styles from './index.css';
+//import styles from './index.css';
 import img1 from './../assets/img/img1.png'
 import img2 from './../assets/img/img2.png'
 import img3 from './../assets/img/img3.png'

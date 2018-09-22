@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
 import PageA from "./PageA";
 import PageB from "./PageB";
 
@@ -7,7 +7,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <Router>
+                x<Router>
                     <div>
                         <Link to='/a'>跳转A</Link>/
                         <Link to='/b'>跳转B</Link>
@@ -27,6 +27,7 @@ class Main extends Component {
                                     return <h1>111</h1>
                                 }
                             }/>
+                            <Route path='/b/aaa' chirldren={PageB}/>
                         </Switch>
                     </div>
                 </Router>

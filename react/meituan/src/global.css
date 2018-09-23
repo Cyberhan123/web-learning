@@ -1,13 +1,30 @@
-* {
+
+*{
   touch-action: none;
 }
 
 html, body, #root {
   height: 100%;
 }
-
+.am-list-item img{
+  width: 100px;
+  height: 60px;
+}
 body {
   margin: 0;
+}
+.am-grid,.am-grid-square,.am-grid-carousel{
+  background: #fff !important;
+}
+.slider-list{
+  height: 158px !important;
+}
+.am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon{
+  top: 5px !important;
+  width: 50% !important;
+}
+.am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content .am-grid-text{
+  font-size:15px;
 }
 
 .am-navbar-light {
@@ -27,3 +44,4 @@ body {
 .am-search-cancel {
   color: #fff;
 }
+

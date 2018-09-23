@@ -13,7 +13,7 @@ class BasicLayout extends React.Component {
                 ]}
                 className={Style.navbar}
         >
-          <SearchBar placeholder="Search" maxLength={8} />
+          <SearchBar placeholder="今天是个发财的日子" maxLength={8} />
         </NavBar>
         {this.props.children}
       </div>

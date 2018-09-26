@@ -51,4 +51,6 @@ public interface UserSQLInterface {
      */
      void delete(User user);
 
+
+
 }

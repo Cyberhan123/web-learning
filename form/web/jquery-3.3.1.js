@@ -3163,7 +3163,7 @@ jQuery.each( {
 	jQuery.fn[ name ] = function( until, selector ) {
 		var matched = jQuery.map( this, fn, until );
 
-		if ( name.slice( -5 ) !== "Until" ) {
+		if ( name.slice( -5 ) !== "Unit" ) {
 			selector = until;
 		}
 

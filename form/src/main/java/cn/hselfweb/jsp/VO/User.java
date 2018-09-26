@@ -12,6 +12,7 @@ public class User {
     }
 
     public User(String userid, String username, String password, String sex, String agree) {
+        this.userid = userid;
         this.agree = agree;
         this.sex = sex;
         this.password = password;

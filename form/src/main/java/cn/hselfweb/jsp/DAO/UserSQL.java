@@ -6,13 +6,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 必须在类使用结束调用close()
+ */
 public class UserSQL implements UserSQLInterface {
-    private static Connection CONNECTION;
+    //一个用户一个connection
+    private  Connection CONNECTION;
 
     public UserSQL() {
 
         CONNECTION = openConnection();
     }
+
 
     public Connection openConnection() {
         Connection connection = null;
@@ -41,6 +46,7 @@ public class UserSQL implements UserSQLInterface {
                 user.setSex(resultSet.getString("sex"));
                 users.add(user);
             }
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,6 +135,7 @@ public class UserSQL implements UserSQLInterface {
             preparedStatement.setString(4, user.getAgree());
             preparedStatement.setString(5, user.getSex());
             preparedStatement.executeUpdate();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -151,6 +158,7 @@ public class UserSQL implements UserSQLInterface {
             preparedStatement.setString(4, user.getSex());
             preparedStatement.setString(5, user.getUserid());
             preparedStatement.executeUpdate();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -168,6 +176,15 @@ public class UserSQL implements UserSQLInterface {
             PreparedStatement preparedStatement = CONNECTION.prepareStatement(SQL);
             preparedStatement.setString(1, user.getUserid());
             preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void close() {
+        try {
+            CONNECTION.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

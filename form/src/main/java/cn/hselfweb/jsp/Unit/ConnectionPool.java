@@ -26,12 +26,16 @@ public class ConnectionPool {
     }
 
     public ConnectionPool(Integer totailRequest) {
+        try {
+            Class.forName(driveName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < totailRequest; i++) {
             try {
-                Class.forName(driveName);
                 Connection connection = DriverManager.getConnection(url, userName, passWord);
                 connections.add(connection);
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
 
@@ -40,10 +44,10 @@ public class ConnectionPool {
 
     public Connection getConnection() {
         Connection connection = null;
-        if (connections.size() > 0)
-            synchronized (this) {
+        synchronized (this) {
+            if (connections.size() > 0)
                 connection = connections.remove(0);
-            }
+        }
         return connection;
     }
 

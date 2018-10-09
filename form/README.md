@@ -13,3 +13,6 @@
     文件名分别为UserSQL.java,UserSQLInterface.java,
     User.java
 
+## 第三次作业
+- cn.hselfweb.jsp.homework 包下Student.java
+StudentServlet.java StudentEditServlet.java StudentSQL.java

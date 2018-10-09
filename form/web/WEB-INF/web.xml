@@ -8,6 +8,14 @@
         <servlet-class>cn.hselfweb.jsp.doGet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>student</servlet-name>
+        <servlet-class>cn.hselfweb.jsp.homework.StudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>studentEdit</servlet-name>
+        <servlet-class>cn.hselfweb.jsp.homework.StudentEditServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ajax</servlet-name>
         <servlet-class>cn.hselfweb.jsp.homework.homework</servlet-class>
     </servlet>
@@ -18,6 +26,14 @@
     <servlet-mapping>
         <servlet-name>ajax</servlet-name>
         <url-pattern>/ajax</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>student</servlet-name>
+        <url-pattern>/student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>studentEdit</servlet-name>
+        <url-pattern>/studentEdit</url-pattern>
     </servlet-mapping>
 
 </web-app>

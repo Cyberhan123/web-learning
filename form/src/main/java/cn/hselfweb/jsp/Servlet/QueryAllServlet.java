@@ -14,19 +14,21 @@ import java.util.List;
 public class QueryAllServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserSQL userSQL=new UserSQL();
-        List<User> users=userSQL.queryAll();
+        UserSQL userSQL = new UserSQL();
+        List<User> users = userSQL.queryAll();
         userSQL.close();
+//
+//        resp.setContentType("text/html;charset=utf-8");
+//        PrintWriter out = resp.getWriter();
+//        for(User user:users){
+//            out.println(user.getUserid());
+//            out.println(user.getUsername());
+//            out.println(user.getSex());
+//            out.println(user.getAgree());
+//            out.println(user.getPassword());
 
-        resp.setContentType("text/html;charset=utf-8");
-        PrintWriter out = resp.getWriter();
-        for(User user:users){
-            out.println(user.getUserid());
-            out.println(user.getUsername());
-            out.println(user.getSex());
-            out.println(user.getAgree());
-            out.println(user.getPassword());
-        }
 
     }
+
 }
+

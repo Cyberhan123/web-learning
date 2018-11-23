@@ -6,6 +6,12 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="HelloWorld" />
+          <element id="module-output" name="form" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.12" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations-java5:16.0.3" />
         </element>
       </element>
     </root>

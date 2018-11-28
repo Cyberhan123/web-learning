@@ -15,26 +15,26 @@ public class DownloadAction implements Action{
 	
 	public void execute(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String filename = request.getParameter("filename");
-		String dir = request.getServletContext().getRealPath("")+"uploaddir";
-		
-		String filepath =  dir + "/" + filename;
-		
-		response.setContentType(request.getServletContext().getMimeType(filename));
-		
-		response.setHeader("Content-Disposition", "attachment;filename="+filename);
-		
-		InputStream in = new FileInputStream(filepath);
-		OutputStream out = response.getOutputStream(); 
-		byte[] bs = new byte[1024];
-		int size = 0;
-		while((size = in.read(bs))> 0){
-			out.write(bs, 0, size);
-		}
-		in.close();
-		out.close();
-		
+//		// TODO Auto-generated method stub
+//		String filename = request.getParameter("filename");
+//		String dir = request.getServletContext().getRealPath("")+"uploaddir";
+//
+//		String filepath =  dir + "/" + filename;
+//
+//		response.setContentType(request.getServletContext().getMimeType(filename));
+//
+//		response.setHeader("Content-Disposition", "attachment;filename="+filename);
+//
+//		InputStream in = new FileInputStream(filepath);
+//		OutputStream out = response.getOutputStream();
+//		byte[] bs = new byte[1024];
+//		int size = 0;
+//		while((size = in.read(bs))> 0){
+//			out.write(bs, 0, size);
+//		}
+//		in.close();
+//		out.close();
+//
 	
 	}
 	

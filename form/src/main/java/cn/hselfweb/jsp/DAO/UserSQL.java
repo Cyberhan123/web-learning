@@ -60,18 +60,19 @@ public class UserSQL implements UserSQLInterface {
      */
     @Override
     public List<User> queryAll() {
-        String SQL = "SELECT * FROM userdata";
-        ResultSet resultSet = null;
-        List<User> users;
-
-        try {
-            Statement statement = CONNECTION.createStatement();
-            resultSet = statement.executeQuery(SQL);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        users = resultLoop(resultSet);
-        return users;
+//        String SQL = "SELECT * FROM userdata";
+//        ResultSet resultSet = null;
+//        List<User> users;
+//
+//        try {
+//            Statement statement = CONNECTION.createStatement();
+//            resultSet = statement.executeQuery(SQL);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        users = resultLoop(resultSet);
+//        return users;
+        return null;
     }
 
     /**
@@ -82,11 +83,12 @@ public class UserSQL implements UserSQLInterface {
      */
     @Override
     public List<User> queryByName(String username) {
-        String SQL = "SELECT * FROM userdata WHERE username=?";
-        List<User> users;
-        ResultSet resultSet = getResultSet(username, SQL);
-        users = resultLoop(resultSet);
-        return users;
+//        String SQL = "SELECT * FROM userdata WHERE username=?";
+//        List<User> users;
+//        ResultSet resultSet = getResultSet(username, SQL);
+//        users = resultLoop(resultSet);
+//        return users;
+        return null;
     }
 
     /**
@@ -97,24 +99,25 @@ public class UserSQL implements UserSQLInterface {
      */
     @Override
     public User queryById(String userID) {
-        String SQL = "SELECT * FROM userdata WHERE userid=?";
-        List<User> users;
-        ResultSet resultSet;
-        resultSet = getResultSet(userID, SQL);
-        users = resultLoop(resultSet);
-        return users.get(0);
+//        String SQL = "SELECT * FROM userdata WHERE userid=?";
+//        List<User> users;
+//        ResultSet resultSet;
+//        resultSet = getResultSet(userID, SQL);
+//        users = resultLoop(resultSet);
+//        return users.get(0);
+        return null;
     }
 
     private ResultSet getResultSet(String userID, String SQL) {
         ResultSet resultSet = null;
-        PreparedStatement preparedStatement;
-        try {
-            preparedStatement = CONNECTION.prepareStatement(SQL);
-            preparedStatement.setString(1, userID);
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        PreparedStatement preparedStatement;
+//        try {
+//            preparedStatement = CONNECTION.prepareStatement(SQL);
+//            preparedStatement.setString(1, userID);
+//            resultSet = preparedStatement.executeQuery();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         return resultSet;
     }
 
@@ -171,15 +174,15 @@ public class UserSQL implements UserSQLInterface {
      */
     @Override
     public void delete(User user) {
-        String SQL = "DELETE FROM userdata WHERE userid = ?";
-        try {
-            PreparedStatement preparedStatement = CONNECTION.prepareStatement(SQL);
-            preparedStatement.setString(1, user.getUserid());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        String SQL = "DELETE FROM userdata WHERE userid = ?";
+//        try {
+//            PreparedStatement preparedStatement = CONNECTION.prepareStatement(SQL);
+//            preparedStatement.setString(1, user.getUserid());
+//            preparedStatement.executeUpdate();
+//            preparedStatement.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void close() {

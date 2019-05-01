@@ -7,6 +7,7 @@ This is the new start begin
 - JSP分支是JSP&Servele https://github.com/Cyberhan123/web-learning/tree/JSP
 
 ## self website  
+- 我的博客又死了QAQ 2019.5.1等不忙在做吧
 - 我的博客又活了~~~ 2018/7/30
 - https://hselfweb.cn
 - github 静态主页 http://cyberhan.cn

@@ -1,17 +1,23 @@
-# web-learning  
+# learning  
 
-This is the new start begin
+> 菜鸡前端的学习笔记
 
-## 分支
-- 主分支是前端 https://github.com/Cyberhan123/web-learning/tree/master
-- JSP分支是JSP&Servele https://github.com/Cyberhan123/web-learning/tree/JSP
+## 目录
 
-## self website  
-- 我的博客又死了QAQ 2019.5.1等不忙在做吧
-- 我的博客又活了~~~ 2018/7/30
-- https://hselfweb.cn
-- github 静态主页 http://cyberhan.cn
-- 项目独立主页 http://cyberhan.cn/web-learning
+目录待整理
+
+```
+JavaScript
+|_ ajax
+|_ 
+```
+
+## 个人网站  
+
+待完善 :)
+
+https://cyberhan.cn
+
 ## wiki  
 
 https://github.com/Cyberhan123/web-learning/wiki
